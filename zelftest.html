@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gratis AI-zelftest voor reisbureaus en touroperators · Dirk De Waegeneire</title>
+<meta name="description" content="Beantwoord 11 korte vragen en ontdek welke AI-toepassingen zinvol zijn voor jouw reisbureau, en welke (nog) niet. Gratis, zonder e-mailadres, je antwoorden blijven in je browser.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f4e5f'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23fff' text-anchor='middle'%3EDW%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#faf8f4; --surface:#ffffff; --ink:#1d2327; --muted:#5b646b;
+    --accent:#1f4e5f; --accent-soft:#e3edf0; --line:#e6e1d8; --warm:#b5652b; --warm-soft:#f6e9df;
+    --good:#2f6b4f; --good-soft:#e2f0e8; --maxw:760px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#14181b; --surface:#1b2024; --ink:#e9ecee; --muted:#a3adb4;
+      --accent:#8cc3d4; --accent-soft:#223239; --line:#2b3237; --warm:#e0955c; --warm-soft:#3a2a1f;
+      --good:#8fd1ae; --good-soft:#1f3329; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  header.top{border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+  .brand{font-family:Georgia,serif;font-size:19px;color:var(--ink);text-decoration:none}
+  header.top a.back{color:var(--accent);text-decoration:none;font-size:15px}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:normal;line-height:1.25}
+  h1{font-size:clamp(28px,5vw,40px);margin:0 0 14px}
+  h2{font-size:clamp(22px,3.4vw,28px);margin:0 0 12px}
+  h3{font-size:18px;margin:0 0 4px}
+  .intro{padding:52px 0 28px}
+  .eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--warm);margin:0 0 12px;font-weight:600}
+  .lead{color:var(--muted);font-size:18px}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
+  .pills li{background:var(--accent-soft);color:var(--accent);border-radius:99px;padding:4px 12px;font-size:14px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;margin:0 0 18px}
+  .progress{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:0 0 18px}
+  .progress span{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+  .qnum{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px}
+  .qhint{color:var(--muted);font-size:15px;margin:4px 0 14px}
+  .opts{display:grid;gap:10px}
+  .opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;background:var(--bg)}
+  .opt:hover{border-color:var(--accent)}
+  .opt input{margin-top:4px;accent-color:var(--accent);width:18px;height:18px;flex:none}
+  .opt.checked{border-color:var(--accent);background:var(--accent-soft)}
+  .nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;gap:12px}
+  .btn{display:inline-block;background:var(--accent);color:#fff;border:0;text-decoration:none;cursor:pointer;
+    padding:12px 22px;border-radius:8px;font-weight:600;font-size:16px;font-family:inherit}
+  @media (prefers-color-scheme: dark){ .btn{color:#10161a} }
+  .btn[disabled]{opacity:.45;cursor:not-allowed}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+  .linkbtn{background:none;border:0;color:var(--muted);cursor:pointer;font:inherit;font-size:15px;padding:8px 0}
+  .hidden{display:none}
+  .stage{display:flex;gap:6px;margin:16px 0 8px}
+  .stage div{flex:1;text-align:center;font-size:13px;padding:8px 4px;border-radius:8px;background:var(--line);color:var(--muted)}
+  .stage div.on{background:var(--accent);color:#fff;font-weight:600}
+  @media (prefers-color-scheme: dark){ .stage div.on{color:#10161a} }
+  .uc{border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:0 0 12px;background:var(--surface)}
+  .uc .meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 0}
+  .tag{font-size:12.5px;border-radius:99px;padding:2px 10px;background:var(--accent-soft);color:var(--accent)}
+  .tag.low{background:var(--good-soft);color:var(--good)}
+  .tag.mid{background:var(--accent-soft);color:var(--accent)}
+  .tag.high{background:var(--warm-soft);color:var(--warm)}
+  .uc p{margin:6px 0 0;color:var(--muted);font-size:15.5px}
+  .why{font-size:14.5px;color:var(--ink)!important;border-left:3px solid var(--accent);padding-left:10px;margin-top:10px!important}
+  .notnow .uc{border-style:dashed}
+  .attention li{margin:0 0 8px}
+  details{margin-top:8px}
+  summary{cursor:pointer;color:var(--accent);font-weight:600}
+  .cat{margin:18px 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--warm);font-weight:600}
+  .small{font-size:14px;color:var(--muted)}
+  .cta{background:var(--accent-soft);border-radius:12px;padding:22px 24px;margin:26px 0}
+  .cta .btn{margin:8px 10px 0 0}
+  footer{padding:28px 0 40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:40px}
+  @media print{
+    header.top,.nav,.cta .btn,footer,#restart{display:none!important}
+    body{background:#fff;color:#000} .card,.uc{break-inside:avoid}
+    details{display:block} details>*{display:block}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html">Dirk De Waegeneire</a>
+    <a class="back" href="index.html">← Terug naar de website</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="intro" id="intro">
+    <p class="eyebrow">Gratis AI-zelftest voor de reissector</p>
+    <h1>Waar liggen de AI-kansen voor jouw reisbureau?</h1>
+    <p class="lead">Beantwoord 11 korte vragen. Je antwoorden worden getoetst aan <strong id="ucCount">24</strong> concrete toepassingen uit de praktijk van reisbureaus en touroperators. Je krijgt meteen te zien wat voor jou kansrijk is, en ook wat je beter (nog) niet doet.</p>
+    <ul class="pills">
+      <li>± 3 minuten</li>
+      <li>Geen e-mailadres nodig</li>
+      <li>Je antwoorden verlaten je browser niet</li>
+    </ul>
+    <p style="margin-top:26px"><button class="btn" id="startBtn">Start de zelftest</button></p>
+  </section>
+
+  <section id="quiz" class="hidden" aria-live="polite">
+    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+    <div class="card" id="qcard"></div>
+    <div class="nav">
+      <button class="linkbtn" id="prevBtn">← Vorige</button>
+      <button class="btn" id="nextBtn" disabled>Volgende</button>
+    </div>
+  </section>
+
+  <section id="result" class="hidden"></section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Deze zelftest geeft een eerste, indicatieve richting en is geen advies op maat. Er worden geen gegevens opgeslagen of verstuurd.
+    <br>© 2026 Dirk De Waegeneire · <a href="index.html" style="color:inherit">dirkdewaegeneire.be</a>
+  </div>
+</footer>
+
+<script>
+/* ---------- Vragen ---------- */
+const Q = [
+  {id:"type", t:"Wat voor organisatie ben je?", o:[
+    ["retail","Reisbureau (vooral verkoop van reizen van touroperators)"],
+    ["to","Touroperator (eigen reisaanbod samenstellen)"],
+    ["beide","Allebei"],
+    ["groep","Groepsreizen, incentives of zakenreizen"]]},
+  {id:"size", t:"Hoeveel mensen werken er in je zaak (jezelf inbegrepen)?", o:[
+    ["xs","1 tot 3"],["s","4 tot 10"],["m","11 tot 25"],["l","Meer dan 25"]]},
+  {id:"use", t:"Hoe wordt AI (zoals ChatGPT, Copilot of Gemini) vandaag gebruikt in je zaak?", o:[
+    ["none","Niet, of ik weet het niet"],
+    ["some","Enkele medewerkers, op eigen initiatief"],
+    ["regular","Regelmatig, maar zonder vaste afspraken"],
+    ["org","Met afspraken en zakelijke licenties"]]},
+  {id:"policy", t:"Zijn er afspraken over welke klantgegevens in AI-tools mogen?", o:[
+    ["no","Nee"],["unknown","Geen idee"],["oral","Mondeling, niet op papier"],["written","Ja, schriftelijk vastgelegd"]]},
+  {id:"pain", t:"Waar gaat de meeste tijd naartoe?", hint:"Kies maximaal 3 antwoorden.", multi:3, o:[
+    ["mail","E-mails en vragen van klanten beantwoorden"],
+    ["offer","Offertes en reisvoorstellen opmaken"],
+    ["program","Reisprogramma's, roadbooks en reisdocumenten"],
+    ["admin","Administratie: facturen, betalingen en dossiercontrole"],
+    ["marketing","Marketing: nieuwsbrief, sociale media, website"],
+    ["changes","Wijzigingen en opvolging tijdens de reis"],
+    ["reporting","Cijfers en rapportering"]]},
+  {id:"after", t:"Krijg je veel vragen buiten de kantooruren (mail, WhatsApp, website)?", o:[
+    ["often","Ja, vaak"],["sometimes","Soms"],["rarely","Zelden"]]},
+  {id:"data", t:"Hoe goed ken je je eigen cijfers, zoals marge per bestemming of hoeveel offertes een boeking worden?", o:[
+    ["dash","Goed, ik heb een overzicht of dashboard"],
+    ["hard","De rapporten bestaan, maar ze zijn omslachtig"],
+    ["poor","Nauwelijks, het zit ergens in het systeem"]]},
+  {id:"vendor", t:"Beloven je softwareleveranciers of partners je AI-functies?", o:[
+    ["unclear","Ja, maar ik weet niet goed wat ik ermee moet"],
+    ["using","Ja, en we gebruiken ze al"],
+    ["no","Nee, of niet dat ik weet"]]},
+  {id:"lang", t:"Communiceer je vaak in andere talen (met klanten of leveranciers)?", o:[
+    ["yes","Ja, dagelijks"],["some","Af en toe"],["no","Nauwelijks"]]},
+  {id:"worry", t:"Wat is je grootste bezorgdheid over AI?", o:[
+    ["privacy","Privacy en klantgegevens"],
+    ["quality","Fouten of een onpersoonlijke toon naar klanten"],
+    ["cost","Kosten en abonnementen die zich opstapelen"],
+    ["team","Dat medewerkers niet mee willen of kunnen"],
+    ["start","Ik weet niet waar te beginnen"]]},
+  {id:"ambition", t:"Wat wil je de komende zes maanden?", o:[
+    ["understand","Eerst begrijpen wat er bestaat"],
+    ["pilot","Eén of twee dingen kleinschalig uitproberen"],
+    ["invest","Concreet investeren in een oplossing"]]}
+];
+
+/* ---------- Toepassingen (use cases) ----------
+   eff: inspanning om te starten (low/mid/high)
+   score(a): relevantie op basis van antwoorden a  */
+const has = (a,id,v)=> Array.isArray(a[id]) ? a[id].includes(v) : a[id]===v;
+const UC = [
+  // Klantcontact & verkoop
+  {c:"Klantcontact & verkoop", n:"Conceptantwoorden voor klantmails", eff:"low",
+   d:"AI stelt een eerste versie op van antwoorden op veelgestelde vragen, in je eigen toon. Je medewerker leest na en verstuurt.",
+   s:a=> (has(a,"pain","mail")?4:1) + (a.use==="none"?0:1),
+   why:a=> has(a,"pain","mail")?"Je gaf aan dat e-mails beantwoorden veel tijd kost.":""},
+  {c:"Klantcontact & verkoop", n:"Reisvoorstellen en offerteteksten sneller opmaken", eff:"mid",
+   d:"Van dossiergegevens en notities naar een verzorgd, persoonlijk reisvoorstel, zonder telkens van nul te beginnen.",
+   s:a=> (has(a,"pain","offer")?5:1) + (a.type==="to"||a.type==="beide"||a.type==="groep"?1:0),
+   why:a=> has(a,"pain","offer")?"Offertes en reisvoorstellen horen bij je grootste tijdvreters.":""},
+  {c:"Klantcontact & verkoop", n:"Aanvragen automatisch samenvatten en prioriteren", eff:"mid",
+   d:"Binnenkomende aanvragen (formulier, mail) worden samengevat met de belangrijkste wensen, budget en data, zodat je sneller de juiste opvolgt.",
+   s:a=> (has(a,"pain","mail")?2:0) + (has(a,"pain","offer")?2:0) + (a.size==="m"||a.size==="l"?1:0)},
+  {c:"Klantcontact & verkoop", n:"Automatische opvolging van openstaande offertes", eff:"mid",
+   d:"Een vriendelijke herinnering of vraag naar feedback wanneer een klant na een offerte niets meer laat horen.",
+   s:a=> (has(a,"pain","offer")?2:0) + (a.data!=="dash"?1:0) + (a.ambition!=="understand"?1:0)},
+  {c:"Klantcontact & verkoop", n:"Chat- of WhatsApp-assistent buiten de kantooruren", eff:"high",
+   d:"Een assistent die veelgestelde vragen beantwoordt op basis van je eigen aanbod en complexe vragen doorgeeft aan een medewerker.",
+   s:a=> (a.after==="often"?4:a.after==="sometimes"?1:-2) + (a.size==="xs"?-2:0) + (a.ambition==="invest"?1:0),
+   notnow:a=> a.after==="rarely" || (a.size==="xs" && a.after!=="often"),
+   notwhy:"Een chatassistent vraagt opzet, onderhoud en meestal een abonnement. Met weinig vragen buiten de kantooruren of een klein team weegt dat zelden op tegen de kost."},
+  {c:"Klantcontact & verkoop", n:"Vertalingen van klant- en leverancierscommunicatie", eff:"low",
+   d:"Snel en correct vertalen van mails, programma's en voorwaarden, met nazicht door een medewerker.",
+   s:a=> a.lang==="yes"?4:a.lang==="some"?2:0},
+  // Reisprogramma's & operations
+  {c:"Reisprogramma's & operations", n:"Dag-per-dagprogramma's en roadbooks opstellen", eff:"low",
+   d:"Op basis van de reisroute een eerste versie van het programma en de praktische info, die je daarna verfijnt.",
+   s:a=> (has(a,"pain","program")?4:1) + (a.type==="to"||a.type==="groep"||a.type==="beide"?1:0),
+   why:a=> has(a,"pain","program")?"Reisprogramma's en documenten kosten je veel tijd.":""},
+  {c:"Reisprogramma's & operations", n:"Controle van reisdocumenten per dossier", eff:"mid",
+   d:"Namen, data en vluchtgegevens in vouchers en tickets automatisch vergelijken met het dossier, zodat fouten vroeg opvallen.",
+   s:a=> (has(a,"pain","program")?2:0) + (has(a,"pain","admin")?2:0) + (a.type==="groep"?1:0)},
+  {c:"Reisprogramma's & operations", n:"Klanten informeren bij wijzigingen tijdens de reis", eff:"high",
+   d:"Bij een vluchtwijziging of planningsaanpassing snel een correcte, persoonlijke melding voorbereiden voor alle betrokken reizigers.",
+   s:a=> (has(a,"pain","changes")?4:0) + (a.type==="groep"?1:0) + (a.size==="xs"?-1:0),
+   notnow:a=> !has(a,"pain","changes") && a.size==="xs",
+   notwhy:"Automatische opvolging van wijzigingen vraagt koppelingen met je systemen. Zonder veel wijzigingen of met een klein team is manueel werken vaak efficiënter."},
+  {c:"Reisprogramma's & operations", n:"Groepslijsten en rooming lists verwerken", eff:"mid",
+   d:"Deelnemerslijsten uit verschillende formaten omzetten naar één correcte lijst voor hotels en leveranciers.",
+   s:a=> a.type==="groep"?4:a.type==="to"||a.type==="beide"?1:0},
+  // Marketing
+  {c:"Marketing & content", n:"Nieuwsbrieven en posts voor sociale media", eff:"low",
+   d:"Sneller inspirerende teksten maken over je reizen en bestemmingen, in je eigen stijl en met je eigen aanbod.",
+   s:a=> has(a,"pain","marketing")?4:1,
+   why:a=> has(a,"pain","marketing")?"Marketing en content hoort bij je tijdvreters.":""},
+  {c:"Marketing & content", n:"Bestemmingsteksten voor je website", eff:"low",
+   d:"Actuele, goed vindbare teksten over bestemmingen en reizen, die een mens nakijkt op juistheid.",
+   s:a=> (has(a,"pain","marketing")?2:0) + (a.type!=="retail"?1:0)},
+  {c:"Marketing & content", n:"Online reviews opvolgen en beantwoorden", eff:"low",
+   d:"Reviews verzamelen, de toon inschatten en een passend antwoord voorbereiden.",
+   s:a=> has(a,"pain","marketing")?2:1},
+  {c:"Marketing & content", n:"Klantfeedback na de reis analyseren", eff:"low",
+   d:"Uit evaluaties en mails halen wat klanten echt waarderen of storend vonden, per bestemming of leverancier.",
+   s:a=> (a.data!=="dash"?1:0) + (a.type!=="retail"?1:0) + (has(a,"pain","reporting")?1:0)},
+  // Back-office & cijfers
+  {c:"Back-office & cijfers", n:"Je back-officecijfers ontsluiten in een helder dashboard", eff:"mid",
+   d:"Marge per bestemming, conversie van offertes, omzet per leverancier: gegevens die al in je systeem zitten, overzichtelijk gemaakt.",
+   s:a=> (a.data==="poor"?4:a.data==="hard"?3:0) + (has(a,"pain","reporting")?2:0),
+   why:a=> a.data!=="dash"?"Je gaf aan dat je cijfers moeilijk bereikbaar zijn, terwijl ze al in je systeem zitten.":""},
+  {c:"Back-office & cijfers", n:"Leveranciersfacturen controleren tegen je dossiers", eff:"mid",
+   d:"Automatisch nagaan of gefactureerde bedragen, aantallen en data overeenkomen met wat geboekt werd.",
+   s:a=> (has(a,"pain","admin")?4:0) + (a.size==="m"||a.size==="l"?1:0),
+   why:a=> has(a,"pain","admin")?"Administratie en dossiercontrole kosten je veel tijd.":""},
+  {c:"Back-office & cijfers", n:"Contracten en voorwaarden van leveranciers samenvatten", eff:"low",
+   d:"Annuleringsvoorwaarden, allotments of betaaltermijnen snel op een rij, zonder het volledige contract te herlezen.",
+   s:a=> (a.type!=="retail"?2:0) + (has(a,"pain","admin")?1:0)},
+  {c:"Back-office & cijfers", n:"Interne kennisbank waaraan medewerkers vragen stellen", eff:"mid",
+   d:"Procedures, bestemmingskennis en leveranciersinfo op één plek, waar medewerkers in gewone taal hun antwoord vinden.",
+   s:a=> (a.size==="m"||a.size==="l"?3:a.size==="s"?1:-1) + (a.worry==="team"?1:0),
+   notnow:a=> a.size==="xs",
+   notwhy:"Een interne kennisbank loont pas als meerdere mensen dezelfde info zoeken. In een heel klein team zit die kennis meestal in de hoofden."},
+  // Organisatie & afspraken
+  {c:"Organisatie & afspraken", n:"Duidelijke afspraken over AI-gebruik en klantgegevens", eff:"low",
+   d:"Een kort, praktisch AI-beleid: welke tools mogen, wat nooit in een AI-tool mag, en hoe je dat in lijn brengt met de GDPR.",
+   s:a=> (a.policy==="no"||a.policy==="unknown"?5:a.policy==="oral"?3:0) + (a.use==="regular"||a.use==="some"?2:0) + (a.worry==="privacy"?2:0),
+   why:a=> (a.use!=="none" && a.policy!=="written")?"Er wordt al met AI gewerkt, maar zonder schriftelijke afspraken. Dat is het eerste wat je moet regelen.":(a.worry==="privacy"?"Privacy is je grootste bezorgdheid.":"")},
+  {c:"Organisatie & afspraken", n:"Basisopleiding AI voor je medewerkers", eff:"low",
+   d:"Een praktische sessie op maat van de reissector: wat AI goed kan, waar het fouten maakt en hoe je het veilig gebruikt.",
+   s:a=> (a.use==="none"||a.use==="some"?2:0) + (a.worry==="team"?4:0) + (a.worry==="quality"?1:0) + (a.size==="xs"?-1:0),
+   why:a=> a.worry==="team"?"Je bent bezorgd dat medewerkers niet mee willen of kunnen.":""},
+  {c:"Organisatie & afspraken", n:"AI-beloftes van je leveranciers toetsen", eff:"low",
+   d:"Onafhankelijk nagaan wat de AI-functies van je back-office of andere software echt doen, wat ze kosten en of je ze nodig hebt.",
+   s:a=> a.vendor==="unclear"?5:a.vendor==="using"?2:0,
+   why:a=> a.vendor==="unclear"?"Je leverancier belooft AI-functies, maar het is niet duidelijk wat je ermee kunt.":""},
+  {c:"Organisatie & afspraken", n:"Overzicht en keuze van AI-abonnementen", eff:"low",
+   d:"Welke tools betaal je al, wie gebruikt wat, en welke zakelijke licentie volstaat voor je team?",
+   s:a=> (a.worry==="cost"?4:0) + (a.use==="regular"||a.use==="org"?2:0),
+   why:a=> a.worry==="cost"?"Kosten en stapelende abonnementen zijn je grootste zorg.":""},
+  {c:"Organisatie & afspraken", n:"Telefoon- en vergadernotities samenvatten", eff:"low",
+   d:"Na een klantgesprek of overleg automatisch een beknopte samenvatting met afspraken en actiepunten.",
+   s:a=> 1 + (a.size!=="xs"?1:0)},
+  {c:"Organisatie & afspraken", n:"Een eerste, kleine AI-proef opzetten en meten", eff:"low",
+   d:"Eén concrete toepassing kiezen, vooraf bepalen wat succes is, en na enkele weken eerlijk evalueren.",
+   s:a=> (a.ambition==="pilot"?4:a.ambition==="understand"?1:2) + (a.worry==="start"?3:0),
+   why:a=> a.worry==="start"?"Je weet niet goed waar te beginnen: één kleine, meetbare proef is dan de beste start.":""}
+];
+
+const EFF = {low:["Snel te starten","low"], mid:["Beperkte opzet nodig","mid"], high:["Groter traject","high"]};
+const STAGES = ["Verkennen","Experimenteren","Structureren","Opschalen"];
+
+/* ---------- Staat ---------- */
+let i = 0; const A = {};
+const $ = s => document.querySelector(s);
+$("#ucCount").textContent = UC.length;
+
+function render(){
+  const q = Q[i];
+  $("#bar").style.width = ((i)/Q.length*100)+"%";
+  const val = A[q.id] || (q.multi?[]:null);
+  let h = `<p class="qnum">Vraag ${i+1} van ${Q.length}</p><h2>${q.t}</h2>`;
+  if(q.hint) h += `<p class="qhint">${q.hint}</p>`; else h += `<div style="height:10px"></div>`;
+  h += `<div class="opts" role="${q.multi?'group':'radiogroup'}">`;
+  q.o.forEach(([v,label])=>{
+    const on = q.multi ? val.includes(v) : val===v;
+    h += `<label class="opt ${on?'checked':''}"><input type="${q.multi?'checkbox':'radio'}" name="${q.id}" value="${v}" ${on?'checked':''}> <span>${label}</span></label>`;
+  });
+  h += `</div>`;
+  $("#qcard").innerHTML = h;
+  $("#qcard").querySelectorAll("input").forEach(inp=>inp.addEventListener("change",e=>{
+    if(q.multi){
+      let arr = A[q.id] || [];
+      if(e.target.checked){ if(arr.length>=q.multi){ e.target.checked=false; return; } arr=[...arr,e.target.value]; }
+      else arr = arr.filter(x=>x!==e.target.value);
+      A[q.id]=arr;
+    } else A[q.id]=e.target.value;
+    render();
+  }));
+  const answered = q.multi ? (A[q.id]||[]).length>0 : !!A[q.id];
+  $("#nextBtn").disabled = !answered;
+  $("#nextBtn").textContent = i===Q.length-1 ? "Toon mijn resultaat" : "Volgende";
+  $("#prevBtn").style.visibility = i===0 ? "hidden" : "visible";
+}
+
+function stageOf(a){
+  let p = {none:0,some:1,regular:2,org:3}[a.use];
+  if(a.policy==="written") p+=1; else if(a.policy==="no"||a.policy==="unknown") p-=1;
+  if(a.data==="dash") p+=1;
+  return Math.max(0,Math.min(3,Math.round(p)));
+}
+
+function ucHTML(u, why){
+  const e = EFF[u.eff];
+  return `<div class="uc"><h3>${u.n}</h3><p>${u.d}</p>${why?`<p class="why">${why}</p>`:""}
+    <div class="meta"><span class="tag">${u.c}</span><span class="tag ${e[1]}">${e[0]}</span></div></div>`;
+}
+
+function showResult(){
+  const a = A;
+  const scored = UC.map(u=>({u, s:u.s(a), nn: u.notnow?u.notnow(a):false}));
+  const notNow = scored.filter(x=>x.nn);
+  const top = scored.filter(x=>!x.nn).sort((x,y)=>y.s-x.s || (x.u.eff==="low"?-1:1)).slice(0,6);
+  const st = stageOf(a);
+
+  // aandachtspunten
+  const att = [];
+  if(a.use!=="none" && a.policy!=="written") att.push("<strong>Leg afspraken vast over AI en klantgegevens.</strong> Er wordt al met AI gewerkt, en zonder duidelijke regels loop je een risico op het vlak van privacy (GDPR).");
+  if(a.use==="none") att.push("<strong>Begin klein en veilig.</strong> Kies één toepassing met weinig risico, bijvoorbeeld conceptmails of marketingteksten, en leer daaruit.");
+  if(a.vendor==="unclear") att.push("<strong>Laat de AI-beloftes van je leverancier toetsen</strong>, voor je extra modules of abonnementen afneemt.");
+  if(a.data!=="dash") att.push("<strong>Je cijfers zitten al in je systeem.</strong> Ze beter ontsluiten levert vaak meer op dan een nieuwe AI-tool.");
+  if(a.ambition==="invest" && st<=1) att.push("<strong>Investeer niet te snel.</strong> Je wilt concreet investeren, maar de basis (gebruik en afspraken) is nog pril. Een kleine proef vooraf voorkomt dure misgrepen.");
+  if(a.worry==="quality") att.push("<strong>Hou altijd een mens in de lus</strong> voor alles wat naar klanten gaat. AI maakt een eerste versie, je medewerker beslist.");
+  if(att.length<2) att.push("<strong>Meet wat je doet.</strong> Kies per toepassing één eenvoudige maatstaf (tijd, fouten, conversie) en evalueer na enkele weken.");
+
+  const pains = (a.pain||[]).map(v=>Q[4].o.find(o=>o[0]===v)[1].toLowerCase());
+  const summary = `Resultaat AI-zelftest: fase "${STAGES[st]}". Tijdvreters: ${pains.join(", ")}. Top-toepassingen: ${top.slice(0,3).map(x=>x.u.n).join("; ")}.`;
+
+  // alle toepassingen per categorie
+  const cats = [...new Set(UC.map(u=>u.c))];
+  let all = "";
+  cats.forEach(c=>{
+    all += `<p class="cat">${c}</p><ul>` + UC.filter(u=>u.c===c).map(u=>`<li>${u.n} <span class="small">(${EFF[u.eff][0].toLowerCase()})</span></li>`).join("") + `</ul>`;
+  });
+
+  $("#result").innerHTML = `
+    <div class="intro" style="padding-bottom:10px">
+      <p class="eyebrow">Jouw resultaat</p>
+      <h1>Jouw AI-profiel: ${STAGES[st]}</h1>
+      <div class="stage">${STAGES.map((s,k)=>`<div class="${k===st?'on':''}">${s}</div>`).join("")}</div>
+      <p class="lead">${[
+        "Je staat aan het begin. Dat is geen achterstand: je kunt nu bewust kiezen in plaats van mee te lopen met elke nieuwe tool.",
+        "Er wordt al met AI geëxperimenteerd. De volgende stap is afspraken maken en kiezen wat je echt structureel wilt inzetten.",
+        "Je gebruikt AI al bewust. Nu gaat het om de juiste toepassingen kiezen en ze goed inbedden in je werking.",
+        "Je bent al ver. De uitdaging is gericht opschalen, kosten beheersen en blijven meten wat het oplevert."][st]}</p>
+    </div>
+
+    <div class="card">
+      <h2>Eerst aandacht voor</h2>
+      <ul class="attention">${att.slice(0,3).map(x=>`<li>${x}</li>`).join("")}</ul>
+    </div>
+
+    <h2 style="margin-top:30px">Kansrijke toepassingen voor jouw zaak</h2>
+    <p class="small">Geselecteerd uit ${UC.length} toepassingen, op basis van je antwoorden.</p>
+    ${top.map(x=>ucHTML(x.u, x.u.why?x.u.why(a):"")).join("")}
+
+    ${notNow.length?`<div class="notnow"><h2 style="margin-top:30px">Beter (nog) niet</h2>
+      <p class="small">Soms is het beste advies: nu nog niet. Voor jouw situatie zou ik hier voorzichtig mee zijn.</p>
+      ${notNow.map(x=>`<div class="uc"><h3>${x.u.n}</h3><p>${x.u.notwhy}</p></div>`).join("")}</div>`:""}
+
+    <div class="card" style="margin-top:26px">
+      <details><summary>Bekijk alle ${UC.length} toepassingen waaraan je antwoorden getoetst werden</summary>${all}</details>
+    </div>
+
+    <div class="cta">
+      <h2>Wil je dit samen bekijken?</h2>
+      <p>Dit resultaat is een eerste richting, geen advies op maat. In een vrijblijvend gesprek kijken we welke toepassing voor jouw zaak het meeste oplevert, en wat dat realistisch kost.</p>
+      <a class="btn" id="mailBtn" href="#">Mail me je resultaat</a>
+      <button class="btn ghost" onclick="window.print()">Bewaar als PDF</button>
+      <p class="small" style="margin-top:12px">"Mail me je resultaat" opent je eigen mailprogramma met een korte samenvatting. Jij beslist of je die verstuurt.</p>
+    </div>
+    <p><button class="linkbtn" id="restart">↺ Opnieuw beginnen</button></p>
+  `;
+  $("#mailBtn").href = "mailto:dirk@dewaegeneire.be?subject=" + encodeURIComponent("Mijn resultaat AI-zelftest") +
+    "&body=" + encodeURIComponent("Dag Dirk,\n\nIk deed de AI-zelftest. " + summary + "\n\nIk wil dit graag eens bespreken.\n\nNaam:\nBedrijf:\nTelefoon:\n");
+  $("#restart").addEventListener("click",()=>{ for(const k in A) delete A[k]; i=0; $("#result").classList.add("hidden"); $("#quiz").classList.remove("hidden"); render(); window.scrollTo(0,0); });
+  $("#quiz").classList.add("hidden");
+  $("#result").classList.remove("hidden");
+  window.scrollTo(0,0);
+}
+
+$("#startBtn").addEventListener("click",()=>{ $("#intro").classList.add("hidden"); $("#quiz").classList.remove("hidden"); render(); });
+$("#nextBtn").addEventListener("click",()=>{ if(i<Q.length-1){ i++; render(); window.scrollTo(0,0);} else showResult(); });
+$("#prevBtn").addEventListener("click",()=>{ if(i>0){ i--; render(); } });
+</script>
+</body>
+</html>

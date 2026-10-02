@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dirk De Waegeneire · Onafhankelijk AI-advies voor reisbureaus en touroperators</title>
+<meta name="description" content="Onafhankelijk advies over AI voor reisbureaus en touroperators in Vlaanderen. Geen software, geen licenties, geen commissies: ik sta aan jouw kant van de tafel.">
+<meta property="og:title" content="Dirk De Waegeneire · Onafhankelijk AI-advies voor de reissector">
+<meta property="og:description" content="Wat kan AI concreet betekenen voor jouw reisbureau, en wat niet? Onafhankelijk advies, zonder verkooppraatje.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dirkdewaegeneire.be">
+<meta property="og:image" content="https://dirkdewaegeneire.be/dirk.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f4e5f'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23fff' text-anchor='middle'%3EDW%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#faf8f4; --surface:#ffffff; --ink:#1d2327; --muted:#5b646b;
+    --accent:#1f4e5f; --accent-soft:#e3edf0; --line:#e6e1d8; --warm:#b5652b;
+    --maxw:760px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#14181b; --surface:#1b2024; --ink:#e9ecee; --muted:#a3adb4;
+      --accent:#8cc3d4; --accent-soft:#223239; --line:#2b3237; --warm:#e0955c; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  header.top{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:5}
+  header.top .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+  .brand{font-family:Georgia,"Times New Roman",serif;font-size:19px;color:var(--ink);text-decoration:none}
+  nav a{color:var(--muted);text-decoration:none;font-size:15px;margin-left:18px}
+  nav a:hover{color:var(--accent)}
+  @media (max-width:560px){ nav a:not(.cta-link){display:none} }
+  .cta-link{color:var(--accent)!important;font-weight:600}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:normal;line-height:1.25;color:var(--ink)}
+  h1{font-size:clamp(30px,5.2vw,44px);margin:0 0 18px}
+  h2{font-size:clamp(24px,3.6vw,30px);margin:0 0 18px}
+  h3{font-size:19px;margin:0 0 6px}
+  section{padding:64px 0;border-bottom:1px solid var(--line)}
+  .hero{padding:72px 0 64px}
+  .eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--warm);margin:0 0 14px;font-weight:600}
+  .lead{font-size:19px;color:var(--muted);margin:0 0 28px}
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+    padding:12px 22px;border-radius:8px;font-weight:600;font-size:16px}
+  @media (prefers-color-scheme: dark){ .btn{color:#10161a} }
+  .btn:hover{opacity:.9}
+  .btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent);margin-left:10px}
+  @media (max-width:560px){ .btn.ghost{margin:10px 0 0} }
+  .quotes{display:grid;gap:14px;margin:26px 0 0;padding:0;list-style:none}
+  .quotes li{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:8px;padding:16px 18px}
+  .quotes q{font-family:Georgia,serif;font-size:18px;quotes:"“" "”"}
+  .quotes p{margin:8px 0 0;color:var(--muted);font-size:15.5px}
+  .steps{counter-reset:s;display:grid;gap:18px;margin-top:26px}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 20px 18px 64px;position:relative}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:20px;width:30px;height:30px;
+    border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;display:grid;place-items:center;font-size:15px}
+  .step p{margin:0;color:var(--muted)}
+  .tag{display:inline-block;font-size:12.5px;background:var(--accent-soft);color:var(--accent);padding:2px 9px;border-radius:99px;margin-left:6px;vertical-align:middle}
+  .not{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:10px}
+  .not li{padding-left:30px;position:relative}
+  .not li::before{content:"✕";position:absolute;left:4px;top:0;color:var(--warm);font-weight:700}
+  .note{margin-top:22px;padding:16px 18px;background:var(--accent-soft);border-radius:8px;font-size:16px}
+  .about{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:start}
+  @media (max-width:560px){ .about{grid-template-columns:1fr} }
+  .photo{width:150px;height:150px;border-radius:50%;object-fit:cover;background:var(--accent-soft);
+    display:grid;place-items:center;font-family:Georgia,serif;font-size:44px;color:var(--accent);overflow:hidden}
+  .photo img{width:100%;height:100%;object-fit:cover}
+  .facts{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+  .facts li{padding-left:20px;position:relative;color:var(--muted)}
+  .facts li::before{content:"";position:absolute;left:2px;top:.72em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  .contact{text-align:left}
+  .contact-lines{margin:22px 0 28px;display:grid;gap:6px;font-size:18px}
+  .contact-lines a{color:var(--accent);text-decoration:none}
+  footer{padding:28px 0 40px;color:var(--muted);font-size:14px}
+  a:focus-visible{outline:2px solid var(--warm);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">Dirk De Waegeneire</a>
+    <nav>
+      <a href="#vragen">Vragen</a>
+      <a href="#aanpak">Aanpak</a>
+      <a href="#wie">Wie ik ben</a>
+      <a href="zelftest.html">Zelftest</a>
+      <a class="cta-link" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Onafhankelijk AI-advies voor de reissector</p>
+    <h1>Wat kan AI concreet betekenen voor jouw reisbureau, en wat niet?</h1>
+    <p class="lead">Leveranciers beloven vandaag veel met AI. Ik help zaakvoerders van reisbureaus en touroperators uitzoeken wat daarvan echt iets oplevert voor hun zaak, voor ze tijd en geld investeren. Ik verkoop zelf geen software en neem geen commissies. Ik sta aan jouw kant van de tafel.</p>
+    <a class="btn" href="#contact">Plan een kennismaking</a>
+    <a class="btn ghost" href="zelftest.html">Doe de gratis AI-zelftest</a>
+  </div>
+</section>
+
+<section id="vragen">
+  <div class="wrap">
+    <h2>Herken je een van deze vragen?</h2>
+    <p>Dit zijn vragen die ik vandaag bij zaakvoerders in de sector hoor.</p>
+    <ul class="quotes">
+      <li><q>Mijn softwareleverancier zegt dat er nu AI in zit. Wat heb ik daar concreet aan?</q>
+        <p>Ik zoek uit wat die functies echt doen, wat ze kosten en of ze passen bij de manier waarop jullie werken.</p></li>
+      <li><q>Moet ik zo'n AI-chatbot op mijn website zetten, of is dat weggegooid geld?</q>
+        <p>Er bestaan sterke tools voor de reissector. Of ze voor jouw grootte en klanten zinvol zijn, is een andere vraag.</p></li>
+      <li><q>Mijn medewerkers gebruiken ChatGPT al voor mails en offertes. Is dat wel veilig met klantgegevens?</q>
+        <p>Samen maken we duidelijke afspraken: wat mag, met welke tools, en hoe je de privacy van je klanten beschermt.</p></li>
+      <li><q>Mijn back-office zit vol gegevens en rapporten die niemand leest. Kan dat niet slimmer?</q>
+        <p>Vaak zit de meerwaarde niet in nieuwe software, maar in het beter gebruiken van wat je al hebt.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="aanpak">
+  <div class="wrap">
+    <h2>Hoe ik werk</h2>
+    <p>Kort, concreet en zonder langlopende verplichtingen.</p>
+    <div class="steps">
+      <div class="step">
+        <h3>Kennismakingsgesprek <span class="tag">vrijblijvend</span></h3>
+        <p>We bespreken jullie werking, de tools die jullie gebruiken en waar het vandaag wringt. Je weet daarna of het zinvol is om verder te gaan.</p>
+      </div>
+      <div class="step">
+        <h3>AI-scan van je zaak</h3>
+        <p>Ik bekijk jullie processen, software en leverancierscontracten. Je krijgt een helder schriftelijk advies: waar AI echt iets oplevert, waar niet, wat prioriteit heeft en wat het ongeveer kost.</p>
+      </div>
+      <div class="step">
+        <h3>Begeleiding bij de keuze</h3>
+        <p>Wil je ermee verder, dan help ik offertes vergelijken en zit ik mee aan tafel met leveranciers. De uitvoering gebeurt door je leverancier of IT-partner. Ik blijf aan jouw kant.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="zelftest">
+  <div class="wrap">
+    <h2>Gratis AI-zelftest voor reisbureaus</h2>
+    <p>Benieuwd waar de kansen liggen voor jouw zaak? Beantwoord 11 korte vragen. Je antwoorden worden getoetst aan 24 concrete toepassingen uit de reissector, van klantmails en reisvoorstellen tot facturencontrole en dashboards. Je krijgt meteen te zien wat kansrijk is, en wat je beter (nog) niet doet.</p>
+    <p class="note">Zonder e-mailadres, zonder verplichting. Je antwoorden verlaten je browser niet.</p>
+    <p style="margin-top:22px"><a class="btn" href="zelftest.html">Start de zelftest</a></p>
+  </div>
+</section>
+
+<section id="niet">
+  <div class="wrap">
+    <h2>Wat ik niet doe</h2>
+    <p>Omdat onafhankelijkheid het hele punt is, ben ik daar graag duidelijk over:</p>
+    <ul class="not">
+      <li>Ik verkoop geen software en geen licenties.</li>
+      <li>Ik ontvang geen commissies of doorverwijsvergoedingen van leveranciers.</li>
+      <li>Ik bouw en onderhoud geen systemen en sluit geen langlopende servicecontracten af.</li>
+      <li>Ik beloof geen "AI die alles oplost". Soms is het beste advies: nu nog niet.</li>
+    </ul>
+    <p class="note">Je bestaande IT-partner of softwareleverancier blijft dus gewoon je IT-partner. Ik zorg ervoor dat je met meer kennis van zaken met hen kan praten.</p>
+  </div>
+</section>
+
+<section id="wie">
+  <div class="wrap">
+    <h2>Wie ik ben</h2>
+    <div class="about">
+      <div class="photo">
+        <img src="dirk.jpg" alt="Portret van Dirk De Waegeneire" width="150" height="150">
+      </div>
+      <div>
+        <p>Ik ben Dirk De Waegeneire. Mijn loopbaan speelde zich af tussen IT en business. Ik heb IT-oplossingen verkocht, van computers tot cloud, managed services en datacenters. Ik hielp CRM-systemen opzetten en werkte mee aan de transformatie van een grote IT-organisatie. Zo leerde ik hoe groot de afstand kan zijn tussen wat een leverancier belooft en wat een organisatie er echt mee doet.</p>
+        <p>De reissector ken ik van binnenuit. Met mijn eigen reisorganisatie Adagio stond ik zelf aan de kant van de zaakvoerder, en als bestuurslid van de VVR, de beroepsvereniging van de Vlaamse reisbureaus, leerde ik de uitdagingen van de hele sector kennen.</p>
+        <p>De voorbije jaren verdiepte ik me in AI: de verschillende systemen, AI-agents en automatisering. Ik bouw zelf werkende automatiseringen, zodat ik weet waarover ik praat. Ik ben geen programmeur en geen datawetenschapper. Mijn sterkte is vertalen: tussen technologie en de dagelijkse realiteit van een KMO.</p>
+        <p>Daarnaast ben ik mentor bij NOA (Netwerk Ondernemen), waar ik belangeloos ondernemers begeleid. Ook daar draait het om hetzelfde: helpen de juiste keuzes te maken, niet iets verkopen.</p>
+        <ul class="facts">
+          <li>IT-verkoop en -projecten in internationale en corporate functies</li>
+          <li>Eigen reisorganisatie Adagio</li>
+          <li>Voormalig bestuurslid VVR</li>
+          <li>Mentor voor ondernemers bij NOA</li>
+          <li>Praktijkervaring met AI-tools en automatisering (n8n)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Zin in een gesprek?</h2>
+    <p>Bel of mail me gerust. Een eerste gesprek is vrijblijvend. Je beslist daarna zelf of je verder wilt.</p>
+    <div class="contact-lines">
+      <a href="mailto:dirk@dewaegeneire.be">dirk@dewaegeneire.be</a>
+      <a href="tel:+32478579547">+32 478 57 95 47</a>
+      <a href="https://www.linkedin.com/in/dirkdewaegeneire" rel="noopener">LinkedIn</a>
+    </div>
+    <a class="btn" href="mailto:dirk@dewaegeneire.be?subject=Kennismaking%20AI-advies">Stuur me een mail</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2026 Dirk De Waegeneire · Destelbergen
+    <!-- Na inschrijving in de KBO hier toevoegen: · Ondernemingsnummer BE 0xxx.xxx.xxx -->
+    <br>Deze website en de zelftest gebruiken geen cookies en verzamelen geen persoonsgegevens.
+  </div>
+</footer>
+
+</body>
+</html>
